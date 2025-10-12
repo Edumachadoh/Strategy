@@ -1,0 +1,74 @@
+1. Contexto Detalhado
+Em um RPG medieval, diferentes classes de personagens podem utilizar variados tipos de armas, cada uma com efeitos especiais únicos. O sistema deve ser flexível para adicionar novas armas e personagens.
+
+2. Tarefa Principal
+Implemente um sistema de combate usando o padrão Strategy onde personagens podem equipar e utilizar diferentes armas com efeitos especiais.
+
+
+
+3. Classes de Armas com Efeitos Especiais
+Espada Longa
+Dano Base: 15
+Efeito Especial: "Corte Profundo" - Chance de 30% de causar sangramento (dano adicional de 5 por 3 turnos)
+Custo Mana: 0
+Requisito: Força ≥ 10
+Arco Élfico
+Dano Base: 12
+Efeito Especial: "Chuva de Flechas" - Ataque em área, atinge todos os inimigos
+Custo Mana: 15
+Requisito: Destreza ≥ 8
+Cajado Arcano
+Dano Base: 8
+Efeito Especial: "Bola de Fogo" - Causa queimadura (dano de 10 por 2 turnos)
+Custo Mana: 25
+Requisito: Inteligência ≥ 12
+Machado de Guerra
+Dano Base: 18
+Efeito Especial: "Golpe Esmagador" - Chance de 25% de atordoar o inimigo (perde 1 turno)
+Custo Mana: 5
+Requisito: Força ≥ 15
+Adaga Sombria
+Dano Base: 10
+Efeito Especial: "Ataque Furtivo" - Dano triplo se o inimigo estiver desprevenido
+Custo Mana: 10
+Requisito: Destreza ≥ 12
+
+
+4. Classes Específicas de Personagens
+Guerreiro
+Atributos Base: Força 15, Destreza 8, Inteligência 5
+Vida: 120
+Mana: 50
+Habilidade Passiva: "Pele Dura" - Reduz dano recebido em 20%
+Pode usar: Espadas, Machados
+Arqueiro
+Atributos Base: Força 8, Destreza 15, Inteligência 7
+Vida: 90
+Mana: 80
+Habilidade Passiva: "Esquiva" - 25% de chance de evitar um ataque
+Pode usar: Arcos, Adagas
+Mago
+Atributos Base: Força 5, Destreza 7, Inteligência 18
+Vida: 70
+Mana: 150
+Habilidade Passiva: "Regeneração de Mana" +10 mana por turno
+Pode usar: Cajados, Adagas
+
+
+5.Implementações recomendadas
+Implementação Base
+Implemente a interface Arma e pelo menos 3 tipos de armas diferentes
+Crie as classes Guerreiro, Arqueiro e Mago
+Implemente o método atacar com dano básico
+Efeitos Especiais
+Implemente o sistema de StatusEffect
+Adicione pelo menos 3 efeitos diferentes (sangramento, queimadura, atordoado)
+Implemente a lógica de aplicação de efeitos nas armas
+Sistema de Batalha
+Crie a classe Batalha que gerencia turnos
+Implemente troca de armas durante a batalha
+Adicione lógica de vitória/derrota
+Extensões
+Adicione uma nova arma com efeito único
+Implemente um sistema de crítico (dano aleatório)
+Crie um personagem híbrido (ex: Paladino)
