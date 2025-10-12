@@ -1,7 +1,9 @@
 package Personagens;
 
+import Armas.IArma;
+
 public class Guerreiro extends ABSPersonagem{
-    // private IArmaStrategy armaEquipada;
+    //private IArma armaEquipada;
 
     public Guerreiro() {
         // Delega a inicialização dos atributos comuns para a classe pai.
