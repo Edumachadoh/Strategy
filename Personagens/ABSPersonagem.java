@@ -30,21 +30,40 @@ public abstract class ABSPersonagem {
     }
 
     public void atacar(ABSPersonagem alvo) {
-        if (this.armaEquipada != null) {
+        if (this.armaEquipada == null) {
+            System.out.println(this.getClass().getSimpleName() + " está desarmado e não pode atacar!");
+            return;
+        }
+
+        // Pega o custo de mana da arma equipada
+        int custoMana = this.armaEquipada.getCustoMana();
+
+        // Verifica se o personagem tem mana suficiente
+        if (this.mana >= custoMana) {
+            // Se tiver, gasta a mana
+            this.gastarMana(custoMana);
+            
             System.out.println("------------------------------------");
-            // A mágica do Padrão Strategy acontece aqui:
-            // O personagem não sabe como a arma funciona, ele apenas a "usa".
-            // A arma (a estratégia) é quem contém toda a lógica do ataque.
+            System.out.println(this.getClass().getSimpleName() + " gastou " + custoMana + " de mana. (Mana restante: " + this.mana + ")");
+            
+            // E então executa o ataque
             this.armaEquipada.usar(this, alvo);
         } else {
-            System.out.println(this.getClass().getSimpleName() + " está desarmado e não pode atacar!");
+            // Se não tiver, o ataque falha
+            System.out.println("------------------------------------");
+            System.out.println("Mana insuficiente para atacar com " + this.armaEquipada.getClass().getSimpleName() + "! O ataque falhou.");
         }
+    }
+
+    private void gastarMana(int custo) {
+        this.mana -= custo;
     }
 
     public void receberDano(int dano) {
         this.vida -= dano;
         System.out.println(this.getClass().getSimpleName() + " sofreu " + dano + " de dano! Vida restante: " + this.vida);
     }
+
 
     public int getVida() {
         return this.vida;
