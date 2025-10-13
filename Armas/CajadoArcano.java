@@ -3,35 +3,35 @@ package Armas;
 import Personagens.ABSPersonagem;
 
 public class CajadoArcano implements IArma {
-     // ATRIBUTOS DUPLICADOS: Estes campos agora precisam ser declarados em TODAS as classes de armas.
     private int danoBase;
-    private String efeitoEspecial;
     private int custoMana;
     private String requisitoNome;
     private int requisitoValor;
 
+    private String efeitoNome = "Queimadura";
+    private int efeitoDano = 10;
+    private int efeitoDuracao = 2;
+    private int efeitoChance = 100; 
+
     public CajadoArcano() {
-        // O construtor inicializa seus próprios atributos. Não há "super()".
         this.danoBase = 8;
-        this.efeitoEspecial = "Bola de fogo - Causa queimadura (dano de 10 por 2 turnos)";
         this.custoMana = 25;
         this.requisitoNome = "Inteligencia";
         this.requisitoValor = 12;
     }
 
-    // Implementação do método da estratégia
     @Override
     public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
-        System.out.println(atacante.getClass().getSimpleName() + " ataca com o cajado arcano!");
+        System.out.println(atacante.getClass().getSimpleName() + " ataca com o Cajado Arcano!");
+        
         alvo.receberDano(this.danoBase);
-    }
+        
+        System.out.println(">> O ataque causou " + this.efeitoNome + "!");
+        alvo.aplicarEfeito(this.efeitoNome, this.efeitoDuracao, this.efeitoDano);
+    } 
 
-    // IMPLEMENTAÇÃO DOS GETTERS: Esta lógica também será repetida em todas as classes.
     @Override
     public int getDanoBase() { return this.danoBase; }
-    
-    @Override
-    public String getEfeitoEspecial() { return this.efeitoEspecial; }
 
     @Override
     public int getCustoMana() { return this.custoMana; }

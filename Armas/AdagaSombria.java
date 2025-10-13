@@ -4,35 +4,38 @@ import Personagens.ABSPersonagem;
 
 public class AdagaSombria implements IArma {
 
-      // ATRIBUTOS DUPLICADOS: Estes campos agora precisam ser declarados em TODAS as classes de armas.
     private int danoBase;
-    private String efeitoEspecial;
     private int custoMana;
     private String requisitoNome;
     private int requisitoValor;
 
     public AdagaSombria() {
-        // O construtor inicializa seus próprios atributos. Não há "super()".
         this.danoBase = 10;
-        this.efeitoEspecial = "Ataque furtivo - Dano triplo se o inimigo estiver desprevinido";
         this.custoMana = 10;
         this.requisitoNome = "Destreza";
         this.requisitoValor = 12;
     }
 
-    // Implementação do método da estratégia
     @Override
-    public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
-        System.out.println(atacante.getClass().getSimpleName() + " ataca com a adaga sombria!");
-        alvo.receberDano(this.danoBase);
-    }
+     public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
+        System.out.println(atacante.getClass().getSimpleName() + " tenta um Ataque Furtivo com a Adaga Sombria!");
+        
+        int danoFinal = this.danoBase;
 
-    // IMPLEMENTAÇÃO DOS GETTERS: Esta lógica também será repetida em todas as classes.
+        if (alvo.isDesprevenido()) {
+            System.out.println(">> O alvo estava desprevenido! O ataque causa dano triplicado!");
+            danoFinal *= 3;
+        }
+        
+        alvo.receberDano(danoFinal);
+    }
+    // public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
+    //     System.out.println(atacante.getClass().getSimpleName() + " ataca com a adaga sombria!");
+    //     alvo.receberDano(this.danoBase);
+    // }
+
     @Override
     public int getDanoBase() { return this.danoBase; }
-    
-    @Override
-    public String getEfeitoEspecial() { return this.efeitoEspecial; }
 
     @Override
     public int getCustoMana() { return this.custoMana; }

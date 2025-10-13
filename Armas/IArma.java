@@ -8,7 +8,6 @@ public interface IArma {
     void usar(ABSPersonagem atacante, ABSPersonagem alvo);
 
     int getDanoBase();
-    String getEfeitoEspecial();
     int getCustoMana();
     String getRequisitoNome();
     int getRequisitoValor();

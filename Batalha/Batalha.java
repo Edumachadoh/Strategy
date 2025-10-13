@@ -42,11 +42,7 @@ public class Batalha {
         declararVencedor();
         scanner.close();
     }
-    
-    /**
-     * Gerencia as ações de um personagem em seu turno.
-     * Agora, permite o ataque após a troca de arma.
-     */
+
     private void executarTurno(ABSPersonagem atacante, ABSPersonagem defensor) {
         System.out.println("É a vez de " + atacante.getClass().getSimpleName() + "!");
         System.out.println("Escolha sua ação: \n 1 - Atacar \n 2 - Trocar de Arma e Atacar");
@@ -55,14 +51,11 @@ public class Batalha {
 
         switch (escolha) {
             case "1":
-                // Ação de ataque direto.
                 atacante.atacar(defensor);
                 break;
             case "2":
-                // Tenta trocar de arma. O método retorna 'true' se a troca for bem-sucedida.
                 boolean trocouComSucesso = menuTrocarArma(atacante);
                 
-                // Se a troca foi bem-sucedida, o personagem ataca em seguida.
                 if (trocouComSucesso) {
                     System.out.println("Após a troca, o personagem ataca!");
                     atacante.atacar(defensor);
@@ -76,11 +69,6 @@ public class Batalha {
         }
     }
 
-    /**
-     * Exibe o menu de troca de arma e a equipa.
-     * @param personagem O personagem que irá trocar de arma.
-     * @return Retorna 'true' se a troca foi bem-sucedida, 'false' caso contrário.
-     */
     private boolean menuTrocarArma(ABSPersonagem personagem) {
         System.out.println("\n--- Trocar Arma ---");
         System.out.println("Escolha a nova arma para equipar:");
@@ -102,11 +90,11 @@ public class Batalha {
             case "5": novaArma = new AdagaSombria(); break;
             default:
                 System.out.println("Opção de arma inválida! A troca falhou.");
-                return false; // Retorna 'false' indicando falha na troca
+                return false; 
         }
 
         personagem.equiparArma(novaArma);
-        return true; // Retorna 'true' indicando que a troca foi um sucesso
+        return true;
     }
 
     private void declararVencedor() {

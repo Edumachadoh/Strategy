@@ -1,7 +1,5 @@
 package Personagens;
 
-import Armas.IArma;
-
 public class Arqueiro extends ABSPersonagem{
      //private IArma armaEquipada;
 

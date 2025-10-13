@@ -3,7 +3,6 @@ package Armas;
 import Personagens.ABSPersonagem;
 
 public class ArcoElfico implements IArma{
-     // ATRIBUTOS DUPLICADOS: Estes campos agora precisam ser declarados em TODAS as classes de armas.
     private int danoBase;
     private String efeitoEspecial;
     private int custoMana;
@@ -11,7 +10,6 @@ public class ArcoElfico implements IArma{
     private int requisitoValor;
 
     public ArcoElfico() {
-        // O construtor inicializa seus próprios atributos. Não há "super()".
         this.danoBase = 12;
         this.efeitoEspecial = "Chuva de Flechas - Ataque em área, atinge todos os inimigos";
         this.custoMana = 15;
@@ -19,19 +17,22 @@ public class ArcoElfico implements IArma{
         this.requisitoValor = 8;
     }
 
-    // Implementação do método da estratégia
     @Override
     public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
-        System.out.println(atacante.getClass().getSimpleName() + " ataca com o arco elfico!");
+        System.out.println(atacante.getClass().getSimpleName() + " dispara uma Chuva de Flechas com o Arco Élfico!");
+        
         alvo.receberDano(this.danoBase);
-    }
 
-    // IMPLEMENTAÇÃO DOS GETTERS: Esta lógica também será repetida em todas as classes.
+        System.out.println(">> As flechas caem sobre toda a área de combate!");
+        
+    }
+    // public void usar(ABSPersonagem atacante, ABSPersonagem alvo) {
+    //     System.out.println(atacante.getClass().getSimpleName() + " ataca com o arco elfico!");
+    //     alvo.receberDano(this.danoBase);
+    // }
+
     @Override
     public int getDanoBase() { return this.danoBase; }
-    
-    @Override
-    public String getEfeitoEspecial() { return this.efeitoEspecial; }
 
     @Override
     public int getCustoMana() { return this.custoMana; }
