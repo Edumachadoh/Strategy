@@ -5,7 +5,6 @@ import java.util.Random;
 import Personagens.ABSPersonagem;
 
 public class EspadaLonga implements IArma{
-     // ATRIBUTOS DUPLICADOS: Estes campos agora precisam ser declarados em TODAS as classes de armas.
     private int danoBase;
     private int custoMana;
     private String requisitoNome;
@@ -28,6 +27,8 @@ public class EspadaLonga implements IArma{
         System.out.println(atacante.getClass().getSimpleName() + " ataca com a Espada Longa!");
         
         alvo.receberDano(this.danoBase);
+        
+        
 
         if (new Random().nextInt(100) < this.efeitoChance) {
             System.out.println(">> O ataque causou " + this.efeitoNome + "!");

@@ -57,7 +57,7 @@ public class Batalha {
                 boolean trocouComSucesso = menuTrocarArma(atacante);
                 
                 if (trocouComSucesso) {
-                    System.out.println("Após a troca, o personagem ataca!");
+                    System.out.println("O personagem ataca!");
                     atacante.atacar(defensor);
                 } else {
                     System.out.println("Como a troca de arma falhou, o personagem perdeu o turno.");
